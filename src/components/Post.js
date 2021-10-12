@@ -4,13 +4,12 @@ import PDF from "./PDF";
 class Post extends Component {
   state = {
     name: "",
-    fatherName: "",
+    dateOfBirth: "",
     image:
       "https://www.clipartmax.com/png/middle/127-1276121_logo-soldier-clip-art.png",
-    class: "",
-    schoolName: "",
-    fatherMobile: "",
-    address: "",
+    standard: "",
+    aadharNumber: "",
+
     postSubmitted: false,
   };
 
@@ -21,7 +20,7 @@ class Post extends Component {
   };
 
   sunmitPost = (e) => {
-    if (!this.state.name || !this.state.address) {
+    if (!this.state.name || !this.state.standard) {
       alert("All fields are required!");
       e.preventDefault();
     } else {
@@ -42,6 +41,18 @@ class Post extends Component {
                   <div className="well well-sm">
                     <form className="form-horizontal" method="post">
                       <fieldset>
+                        <legend
+                          className="text-center header"
+                          style={{ color: "blueviolet" }}
+                        >
+                          SARASWATI SAMAJ SEWA SAMITI
+                        </legend>
+                        <legend
+                          className="text-center header"
+                          style={{ color: "orange" }}
+                        >
+                          SRI NIVASH MEDHA KHOJ PRATIYOGITA 2021
+                        </legend>
                         <legend className="text-center header">
                           Enter Your Data Here
                         </legend>
@@ -53,7 +64,7 @@ class Post extends Component {
                             onChange={this.onChange("name")}
                             name="title"
                             type="text"
-                            placeholder="full Name :"
+                            placeholder="Student Name :"
                             className="form-control"
                           />
                         </div>
@@ -62,10 +73,10 @@ class Post extends Component {
                             <i className="fa fa-user bigicon"></i>
                           </span>
                           <input
-                            onChange={this.onChange("fatherName")}
+                            onChange={this.onChange("dateOfBirth")}
                             name="title"
                             type="text"
-                            placeholder="father Name"
+                            placeholder="Date Of Birth : dd/mm/yyyy"
                             className="form-control"
                           />
                         </div>
@@ -74,10 +85,10 @@ class Post extends Component {
                             <i className="fa fa-user bigicon"></i>
                           </span>
                           <input
-                            onChange={this.onChange("class")}
+                            onChange={this.onChange("aadharNumber")}
                             name="title"
                             type="text"
-                            placeholder="Class"
+                            placeholder="Aadhar Number :"
                             className="form-control"
                           />
                         </div>
@@ -86,35 +97,10 @@ class Post extends Component {
                             <i className="fa fa-user bigicon"></i>
                           </span>
                           <input
-                            onChange={this.onChange("schoolName")}
+                            onChange={this.onChange("standard")}
                             name="title"
                             type="text"
-                            placeholder="Name of School"
-                            className="form-control"
-                          />
-                        </div>
-                        <div className="form-group">
-                          <span className="col-md-1 col-md-offset-2 text-center">
-                            <i className="fa fa-user bigicon"></i>
-                          </span>
-
-                          <input
-                            onChange={this.onChange("fatherMobile")}
-                            name="title"
-                            type="text"
-                            placeholder="Mobile Number (father)"
-                            className="form-control"
-                          />
-                        </div>
-                        <div className="form-group">
-                          <span className="col-md-1 col-md-offset-2 text-center">
-                            <i className="fa fa-user bigicon"></i>
-                          </span>
-                          <input
-                            onChange={this.onChange("address")}
-                            name="title"
-                            type="text"
-                            placeholder="Address"
+                            placeholder="Class :"
                             className="form-control"
                           />
                         </div>
@@ -138,12 +124,10 @@ class Post extends Component {
         ) : (
           <PDF
             name={this.state.name}
-            fatherName={this.state.fatherName}
+            dateOfBirth={this.state.dateOfBirth}
             image={this.state.image}
-            class={this.state.class}
-            fatherMobile={this.state.fatherMobile}
-            schoolName={this.state.schoolName}
-            address={this.state.address}
+            standard={this.state.standard}
+            aadharNumber={this.state.aadharNumber}
           />
         )}
       </>
